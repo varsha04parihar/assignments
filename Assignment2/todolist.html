@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link data-require="bootstrap@3.3.6" data-semver="4.1.3" rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <script data-require="bootstrap@3.3.6" data-semver="4.1.3"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script data-require="jquery" data-semver="3.2.1"
+        src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body class="container">
+    <div class="container">
+
+        <h2>Simple Todo List!</h2>
+
+        <div data-role="content">
+            <ul class="list-group" id="taskListSection">
+                <li class="list-group-item active">Todos</li>
+            </ul>
+            <br />
+            <div class="container">
+
+            <fieldset class="ui-grid-a">
+                <div class="ui-block-a">
+                    <textarea placeholder="Enter task" id="taskInputText" cols="50" maxlength="128"></textarea>
+                </div>
+                <div class="ui-block-b">
+                    <input type="button" class="btn btn-success" value="Submit" id="taskBtn" />
+                </div>
+            </fieldset>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            $("h1").animate({
+                "margin-left": "100px"
+            }, "slow");
+
+
+            $('#taskBtn').click(function () {
+
+                var newTask = $('#taskInputText').val();
+
+                if (newTask !== '') {
+
+                    var count = $("#taskListSection").children().length;
+
+                    $('#taskListSection').append('<li class="list-group-item deletetask bg-success">' + count + '. ' + newTask + '</li>');
+
+                    $('#taskInputText').val('');
+
+                    $('.list-group-item').click(function(){
+                        $(this).css('text-decoration-line', 'line-through');
+                        $(this).css('color', 'red');
+
+                    })
+                    $('.list-group-item').dblclick(function(){
+                        $(this).css('text-decoration-line', 'none');
+                        $(this).css('color', 'black');
+
+                    })
+
+                    setTimeout(function () {
+                        $('#taskListSection li.bg-success').removeClass('bg-success');
+                    }, 1000);
+
+                } else {
+                    alert('Come on, you\'re better than that');
+                }
+            });
+        });
+
+        function deleteTasks() {
+            $('.deletetask').click(function () {
+                $(this).remove();
+            });
+
+        }
+
+    </script>
+</body>
+
+</html>
