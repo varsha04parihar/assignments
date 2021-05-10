@@ -1,0 +1,31 @@
+<style>
+    .myDiv {
+      border: 5px outset red;
+      background-color: lightblue;
+      text-align: center;
+      height: 100%;
+    }
+</style>
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark justify-content-center">
+    <ul class = "nav nav-tabs">
+        <li class = "nav-item" data-toggle="tab">
+           <button class="btn btn-info"><a routerLink="employees" routerLinkActive="active" class="nav-link" ><b>Show Employee List</b></a></button> 
+        </li>
+        <li class = "nav-item" data-toggle="tab">
+            <button class="btn btn-info"> <a routerLink="create-employee" routerLinkActive="active" class="nav-link" ><b>Add a New Employee</b></a></button>
+        </li>
+    </ul>
+</nav>
+
+<div class="myDiv">
+<h1 class="text-center"> {{"Employee Crud Operations"}} </h1>
+<h1 class="text-center"> {{" "}} </h1>
+<div class = "container">
+    <router-outlet></router-outlet>
+</div>
+<footer class = "footer">
+    <div class = "container">
+        <span>Assignment</span>
+    </div>
+</footer>
+</div>

@@ -1,0 +1,31 @@
+<form name="myForm">
+<div class="col-md-6 offset-md-3">
+    <fieldset>
+        <legend>
+    <h2> Create Employee : </h2></legend>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> First Name</label>
+            <input type="text" class ="form-control" id = "firstName" placeholder="Enter first name" 
+                [(ngModel)] = "employee.firstName" name = "firstName" required>
+        </div>
+    
+        <div class="form-group">
+            <label> Last Name</label>
+            <input type="text" class ="form-control" id = "lastName" placeholder="Enter last name" 
+                [(ngModel)] = "employee.lastName" name = "lastName" required>
+        </div>
+    
+        <div class="form-group">
+            <label> Email Id</label>
+            <input type="text" class ="form-control" id = "emailId" placeholder="Enter email id" 
+                [(ngModel)] = "employee.emailId" name = "emailId" required>
+        </div>
+    
+        <button class = "btn btn-success" type ="submit">Create</button>
+    
+    </form>
+</fieldset>
+    </div> 
+</form>
